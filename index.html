@@ -24,11 +24,11 @@
         <section id="form-section" class="card-form-container local-container">
 
             <div class="card-form-main form-container ">
-                <form action="" name="new-address" class="form-main">
+                <form action="" name="newAddress" class="form-main">
                     <div class="form-control-container">
                         <label for="cep">CEP:</label>
                         <input type="text" id="cep" class="form-input" name="cep" placeholder="CEP">
-                        <div class="form-required-field-error form-error">Campo requerido</div>
+                        <div class="form-required-field-error form-error" data-error="cep">Campo requerido</div>
                     </div>
                     <div class="form-control-container">
                         <label for="street">RUA:</label>
@@ -38,7 +38,7 @@
                     <div class="form-control-container">
                         <label for="number">Número:</label>
                         <input type="text" id="number" class="form-input" name="number" placeholder="Número">
-                        <div class="form-required-field-error form-error">Campo requerido</div>
+                        <div class="form-required-field-error form-error" data-error="number">Campo requerido</div>
                     </div>
                     <div class="form-control-container">
                         <label for="city">Cidade:</label>
@@ -47,10 +47,10 @@
                     </div>
 
                     <div class="form-btn-container">
-                        <button type="submit" class="form-btn form-btn-left" >
+                        <button type="submit" class="form-btn form-btn-left" name="btnSave">
                             Salvar
                         </button>
-                        <button type="reset" class="form-btn form-btn-right" >
+                        <button type="reset" class="form-btn form-btn-right" name="btnClear">
                             Limpar
                         </button>
                     </div>
@@ -72,7 +72,7 @@
                 <h3 class="card-item-heading">SÃO PAULO</h3>
                 <p class="card-item-address">Rua dos Jardins, 720</p>
                 <p class="card-item-cep">24715-052</p>
-d
+
             </div>
             <div class="card-item">
                 <h3 class="card-item-heading">SÃO PAULO</h3>
@@ -85,5 +85,6 @@ d
     </main>
 
 </body>
+<script src="./js/index.js" type="module"></script>
 
 </html>
