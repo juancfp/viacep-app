@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: #000;
+}
+
+.global-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.local-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-container {
+  height: 80px;
+  background-color: #ff8400;
+  width: 100%;
+  padding: 0 5%;
+}
+.nav-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.nav-main h1.nav-heading {
+  color: #fff;
+}
+.nav-main .nav-contact-link {
+  color: #fff;
+  cursor: pointer;
+}
+
+.card-form-container {
+  padding: 20px;
+}
+.card-form-main {
+  background-color: #333;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.form-main label {
+  display: none;
+}
+.form-main .form-control-container {
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.form-main .form-input {
+  width: 100%;
+  border-radius: 4px;
+  height: 50px;
+  padding: 0 20px;
+  border: 0;
+}
+.form-main .form-input::placeholder {
+  color: #c9c9c9;
+}
+.form-main .form-input:disabled {
+  background-color: #ddd;
+}
+.form-main .form-error {
+  display: none;
+  color: red;
+  font-size: 10px;
+  padding-left: 10px;
+}
+.form-main .form-btn-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-main .form-btn {
+  width: 250px;
+  height: 50px;
+  background-color: #ff8400;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+.form-main .form-btn-left {
+  margin-right: 5px;
+}
+.form-main .form-btn-right {
+  margin-left: 5px;
+}
+
+.card-item {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #333;
+  border-radius: 8px;
+  padding: 20px;
+}
+.card-item-container {
+  width: 100%;
+  flex-direction: column;
+  padding: 0 20px;
+}
+.card-item-heading {
+  color: #ff8400;
+  font-size: 18px;
+  font-weight: 700;
+}
+.card-item-address {
+  font-size: 14px;
+  color: #fff;
+}
+.card-item-cep {
+  font-size: 12px;
+  color: #8f8f8f;
+}
