@@ -1,3 +1,4 @@
+import Address from '../models/address.js'
 function State() {
     this.btnSave = null;
     this.btnClear = null;
@@ -23,4 +24,15 @@ export function init() {
     state.errorNumber = document.querySelector(`div[data-error="number"]`);
 
     console.log(state);
+
+    state.inputCep.addEventListener("change", e => {
+        console.log(e.target.value == '');
+        if(e.target.value == ''){
+            state.errorCep.style.display='block';
+            e.target.classList.toggle("input-error");
+
+        } else {
+            state.errorCep.style.display='none';
+        }
+    })
 }

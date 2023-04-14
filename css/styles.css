@@ -88,6 +88,11 @@ body {
   font-size: 10px;
   padding-left: 10px;
 }
+.form-main .input-error {
+  border: 2px solid red;
+  transition: border 0.1s;
+  box-sizing: border-box;
+}
 .form-main .form-btn-container {
   width: 100%;
   display: flex;

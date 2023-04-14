@@ -9,6 +9,7 @@ body {
     background-color: #000;
 }
 
+
 // GUIA DE NOMENCLATURAS
 // zzz-container -> engloba a tag zzz
 //      ->container pode englobar varias tags (semanticamente)
@@ -73,6 +74,7 @@ body {
 
 .form {
 
+
     &-container {
         // igual ao .card-form-main
     }
@@ -88,6 +90,7 @@ body {
             display: none;
         }
 
+        
         //  CONTAINER DOS INPUTS (CONTROLADORES)
         .form-control-container {
             padding-bottom: 15px;
@@ -128,7 +131,11 @@ body {
         .form-required-field-error {
             // display:none;
         }
-
+        .input-error{
+            border:2px solid red;
+            transition: border 0.1s ;
+            box-sizing: border-box;
+        }
 
         // BOTÃO
 
