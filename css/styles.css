@@ -82,11 +82,19 @@ body {
 .form-main .form-input:disabled {
   background-color: #ddd;
 }
-.form-main .form-error {
+.form-main .form-error-hide {
   display: none;
+}
+.form-main .form-error {
   color: red;
   font-size: 10px;
   padding-left: 10px;
+}
+.form-main .form-error::before {
+  content: "";
+}
+.form-main .form-required-field-error::before {
+  content: "Campo requerido";
 }
 .form-main .input-error {
   border: 2px solid red;

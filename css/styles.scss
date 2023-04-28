@@ -74,7 +74,6 @@ body {
 
 .form {
 
-
     &-container {
         // igual ao .card-form-main
     }
@@ -89,7 +88,6 @@ body {
         label {
             display: none;
         }
-
         
         //  CONTAINER DOS INPUTS (CONTROLADORES)
         .form-control-container {
@@ -121,21 +119,29 @@ body {
             background-color: #ddd;
         }
 
+
+        .form-error-hide {
+            display:none;
+        }
         .form-error {
-            display: none;
             color: red;
             font-size: 10px;
             padding-left: 10px;
         }
-
-        .form-required-field-error {
-            // display:none;
+        .form-error::before {
+            content:"";
         }
+
+        .form-required-field-error::before {
+            content:"Campo requerido";
+        }
+
         .input-error{
             border:2px solid red;
             transition: border 0.1s ;
             box-sizing: border-box;
         }
+        
 
         // BOTÃO
 
