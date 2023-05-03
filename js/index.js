@@ -1,3 +1,3 @@
-import * as formController from "./controller/form-controller.js";
+import {Controller} from "./controller/controller.js";
 
-formController.init()
+const controller = new Controller();
