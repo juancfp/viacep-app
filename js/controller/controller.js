@@ -16,17 +16,35 @@ export class Controller {
 
         this.view.inputCep.addEventListener("keyup", this.handleCepKeyUp);
         this.view.inputNumber.addEventListener("keyup", this.handleNumberKeyUp);
-
+        this.view.btnClearCards.addEventListener("click", this.handleBtnClearCardsClick)
     }
 
+
+    populate(){
+        if(window.sessionStorage.isVisited !== undefined){
+            
+            let address = JSON.parse(sessionStorage.address)
+            address.forEach(item => {
+                document.querySelector("div#list-section").insertAdjacentHTML("beforeend", `
+                        <div class="card-item">
+                                <h3 class="card-item-heading">${item.city.toUpperCase()}</h3>
+                                <p class="card-item-address">${item.street}, ${document.forms.newAddress.number.value}</p>
+                                <p class="card-item-cep">${item.cep}</p>
+            
+                        </div>
+                    
+                    `)
+
+            })
+
+        }
+    }
 
     handleNumberKeyUp(event) {
         if(event.target.value.length > 0){
             setInputError("number", event.target, "");
         }
     }
-
-
     async handleCepKeyUp(event) {
         try {
             if(event.target.value.length == 8){
@@ -79,9 +97,6 @@ export class Controller {
                     }
 
                 }
-
-
-                
             }
         } catch (e) {
             
@@ -110,11 +125,8 @@ export class Controller {
         
         
     }
-
     async handleBtnSaveClick(event) {
         event.preventDefault();
-        // console.log(await Service.getJson(`https://viacep.com.br/ws/${document.forms.newAddress.cep.value}/json/`));
-
         
         try{
             if(document.forms.newAddress.number.value == "") {
@@ -126,7 +138,16 @@ export class Controller {
                 
             }
             if(document.forms.newAddress.number.value != "" && document.forms.newAddress.cep.value.length == 8) {
-                document.querySelector("section#list-section").insertAdjacentHTML("beforeend", `
+                if(sessionStorage.isVisited !== undefined && sessionStorage.address !== undefined){
+                    let address = JSON.parse(sessionStorage.address)
+                    address.push({
+                        cep:`${document.forms.newAddress.cep.value.slice(0,5)}-${document.forms.newAddress.cep.value.slice(5)}`,
+                        city:document.forms.newAddress.city.value.toUpperCase(),
+                        street:document.forms.newAddress.street.value
+                    })
+                    sessionStorage.setItem("address", JSON.stringify(address))
+                }
+                document.querySelector("div#list-section").insertAdjacentHTML("beforeend", `
                     <div class="card-item">
                             <h3 class="card-item-heading">${document.forms.newAddress.city.value.toUpperCase()}</h3>
                             <p class="card-item-address">${document.forms.newAddress.street.value}, ${document.forms.newAddress.number.value}</p>
@@ -144,5 +165,9 @@ export class Controller {
         }
     }
 
+    handleBtnClearCardsClick(event) {
+        document.querySelector("div#list-section").innerHTML = ""
+        sessionStorage.setItem("address", "[]");
+    }
     
 }

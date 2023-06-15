@@ -6,6 +6,7 @@ export class View {
         this.inputStreet = document.forms.newAddress.street;
         this.inputCity = document.forms.newAddress.city;
         this.inputNumber = document.forms.newAddress.number;
+        this.btnClearCards = document.querySelector("button#btn-clear-cards")
 
     }
 
