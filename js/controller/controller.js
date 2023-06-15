@@ -21,14 +21,12 @@ export class Controller {
 
 
     handleNumberKeyUp(event) {
-        try{
-            if(event.target.value.length > 0){
-                setInputError("number", event.target, "");
-            }
-        } catch (e) {
-            console.log(e);
+        if(event.target.value.length > 0){
+            setInputError("number", event.target, "");
         }
     }
+
+
     async handleCepKeyUp(event) {
         try {
             if(event.target.value.length == 8){
@@ -38,11 +36,9 @@ export class Controller {
                     document.forms.newAddress.city.value = result.localidade;
                     document.forms.newAddress.street.value = result.logradouro;
                 } else {
-                    
-                    setInputError("cep", event.target, "CEP não encontrado");
 
-                    document.forms.newAddress.city.value = "";
-                    document.forms.newAddress.street.value = "";
+                    throw new Error("Digite um CEP válido");
+
                 }
             }else if(event.target.value.length > 8){
                 setInputError("cep", event.target, "Digite um CEP válido");
@@ -59,6 +55,7 @@ export class Controller {
             }
         } catch (e) {
             
+            setInputError("cep", event.target, "CEP não encontrado")
         }
     }
 
@@ -69,13 +66,18 @@ export class Controller {
 
             }
             else {
+
                 if(event.target.value.length < 8){
                     setInputError("cep", event.target, "CEP deve conter 8 digitos.")
                     
                 } 
                 else {
 
-                    setInputError("cep", event.target, "");
+                    if(!event.target.classList.contains("input-error")){
+                        setInputError("cep", event.target, "");
+
+                    }
+
                 }
 
 
